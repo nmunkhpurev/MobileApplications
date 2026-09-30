@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#101010</color>
+    <color name="card_background">#1D1D1D</color>
+    <color name="accent">#736CFF</color>
+    <color name="accent_ripple">#33736CFF</color>
+    <color name="text_primary">#F7F7FA</color>
+    <color name="text_secondary">#AAAAB3</color>
+    <color name="outline">#C7C7CD</color>
+    <color name="error">#FF6B81</color>
+</resources>

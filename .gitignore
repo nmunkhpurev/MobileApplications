@@ -1,0 +1,33 @@
+# Android Studio and local SDK configuration
+*.iml
+.idea/
+local.properties
+
+# Gradle and Kotlin caches
+.gradle/
+.gradle-user-home/
+.kotlin/
+**/build/
+
+# Local Android, Java, and verification tooling
+.android-user-home/
+.java-tmp/
+.jdk17/
+.jdk-test/
+.jdk17.zip
+
+# Native build output
+.externalNativeBuild/
+.cxx/
+
+# Assignment inspection and UI verification artifacts
+.codex-docx-preview/
+.docx-inspect/
+/unit-*.png
+/unit-*.xml
+/run-*.png
+
+# OS and diagnostic files
+.DS_Store
+*.hprof
+/captures/
