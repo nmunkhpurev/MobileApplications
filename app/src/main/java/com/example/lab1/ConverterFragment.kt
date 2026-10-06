@@ -20,7 +20,6 @@ class ConverterFragment : Fragment() {
     private lateinit var category: MeasurementCategory
     private var fromIndex = 0
     private var toIndex = 0
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
