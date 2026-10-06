@@ -31,3 +31,7 @@ local.properties
 .DS_Store
 *.hprof
 /captures/
+
+# Machine-specific files and the supplied assignment brief
+/gradle/gradle-daemon-jvm.properties
+/Нэгж_хөрвүүлэгч_апп_Даалгавар.docx

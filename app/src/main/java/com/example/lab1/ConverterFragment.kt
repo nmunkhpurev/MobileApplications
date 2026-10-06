@@ -35,9 +35,13 @@ class ConverterFragment : Fragment() {
         val categoryId = arguments?.getString(ARG_CATEGORY_ID)
         category = MeasurementCatalog.findCategory(categoryId)
             ?: MeasurementCatalog.categories.first()
-        fromIndex = category.units.indexOfFirst { it.id == category.defaultFromUnitId }
+        val savedFromUnitId = savedInstanceState?.getString(STATE_FROM_UNIT_ID)
+            ?: category.defaultFromUnitId
+        val savedToUnitId = savedInstanceState?.getString(STATE_TO_UNIT_ID)
+            ?: category.defaultToUnitId
+        fromIndex = category.units.indexOfFirst { it.id == savedFromUnitId }
             .coerceAtLeast(0)
-        toIndex = category.units.indexOfFirst { it.id == category.defaultToUnitId }
+        toIndex = category.units.indexOfFirst { it.id == savedToUnitId }
             .coerceAtLeast(0)
 
         binding.categoryTitle.text = category.title
@@ -117,6 +121,12 @@ class ConverterFragment : Fragment() {
         binding.valueInputLayout.error = message
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_FROM_UNIT_ID, category.units[fromIndex].id)
+        outState.putString(STATE_TO_UNIT_ID, category.units[toIndex].id)
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -124,6 +134,8 @@ class ConverterFragment : Fragment() {
 
     companion object {
         const val ARG_CATEGORY_ID = "categoryId"
+        private const val STATE_FROM_UNIT_ID = "fromUnitId"
+        private const val STATE_TO_UNIT_ID = "toUnitId"
         private val VALID_NUMBER = Regex("^-?(?:\\d+(?:[.,]\\d*)?|[.,]\\d+)$")
     }
 }
